@@ -45,6 +45,12 @@
 \inputminted[breaklines]{c++}{string/suffix-automaton.cc}
 
 \newpage
+\section{数学}
+\subsection{快速幂}
+\subsubsection{数字快速幂}
+\inputminted[breaklines,linenos,frame=leftline]{c++}{math/quickpow1.cpp}
+
+\newpage
 \section{图论} % 一级标题
 \subsection{Minimum Spanning Tree} % 二级标题
 \subsubsection{Kruskal} % 三级标题
@@ -56,5 +62,23 @@
 \subsection{我也不知道}
 
 \section{其他}
+\subsection{输入输出}
+\subsubsection{快读}
+\inputminted[breaklines,linenos,frame=leftline]{c++}{others/read1.cpp}
+\subsubsection{关闭同步}
+\inputminted[breaklines,linenos,frame=leftline]{c++}{others/read2.cpp}
+\subsection{高精度}
+\inputminted[breaklines,linenos,frame=leftline]{c++}{others/bignum1.cpp}
+
+
+\newpage
+\section{注意事项}
+\begin{itemize}
+    \item 注意初始点的设置,初始点是否有效是否得到正确的更新
+    \item 注意边界条件如$<$和$<=$,注意特判如$n=1$
+\end{itemize}
+
+
+
 
 \end{document}
