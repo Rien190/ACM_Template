@@ -52,21 +52,26 @@
 
 \newpage
 \section{图论} % 一级标题
-\subsection{Minimum Spanning Tree} % 二级标题
-\subsubsection{Kruskal} % 三级标题
-\inputminted[breaklines]{c++}{graph/kruskal.cc} % 插入代码文件
+\subsection{最小生成树} % 二级标题
+无向图中，其某个子图中任意两个顶点都互相连通并且是一棵树，称之为生成树；若每个顶点有权值，则其权值和最小的生成树为最小生成树。
+\subsubsection{Prim算法}
+\inputminted[breaklines,linenos,frame=leftline]{c++}{graph/prim.cpp}
+\subsubsection{Kruskal算法} % 三级标题
+\inputminted[breaklines,linenos,frame=leftline]{c++}{graph/kruskal.cpp}
 % 中文测试
 \subsection{单源最短路}
 \subsubsection{SPFA}
 \inputminted[breaklines]{c++}{graph/spfa.cc}
-\subsection{我也不知道}
 
+\newpage
 \section{其他}
 \subsection{输入输出}
 \subsubsection{快读}
 \inputminted[breaklines,linenos,frame=leftline]{c++}{others/read1.cpp}
 \subsubsection{关闭同步}
 \inputminted[breaklines,linenos,frame=leftline]{c++}{others/read2.cpp}
+\subsubsection{7.19所用板子}
+\inputminted[breaklines,linenos,frame=leftline]{c++}{others/7.19.cpp}
 \subsection{高精度}
 \inputminted[breaklines,linenos,frame=leftline]{c++}{others/bignum1.cpp}
 
@@ -74,6 +79,7 @@
 \newpage
 \section{注意事项}
 \begin{itemize}
+    \item 注意范围!!!爆int多少回了?有时候ans定义为ll也是不够的,注意改为ll后scanf和printf,不行就signed main,\#define int ll
     \item 注意初始点的设置,初始点是否有效是否得到正确的更新
     \item 注意边界条件如$<$和$<=$,注意特判如$n=1$
 \end{itemize}
