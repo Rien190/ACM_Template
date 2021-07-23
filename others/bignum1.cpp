@@ -77,6 +77,6 @@ int  main()
     //可以直接用cout输出char数组内容
     cout<<a<<" "<<b<<endl;
     (A+B).output();//加法
-    (A+B).output();//乘法
+    (A*B).output();//乘法
     return 0;
 }
