@@ -4,6 +4,7 @@
 \usepackage{minted}    % 代码高亮
 \usepackage[colorlinks]{hyperref}  % 目录可跳转
 \usepackage{graphicx}
+\usepackage{amsmath}
 \setlength{\headheight}{15pt}
 
 \hypersetup {
@@ -25,6 +26,7 @@
 
 \begin{document}
 \maketitle % 封面
+\thispagestyle{empty}%目录页不显示页码
 
 \begin{figure}[H]
     \centering
@@ -32,14 +34,16 @@
     \vspace{0.5cm}
 \end{figure}
 \centerline{rien\_zhu@163.com}
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \newpage % 换页
 \tableofcontents % 目录
+\thispagestyle{empty}%目录页不显示页码
 %\twocolumn  % 分页显示
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \newpage
+\setcounter{page}{1}%从下面开始编页码
 \section{字符串}
 \subsection{KMP}
-\inputminted[breaklines,linenos,frame=leftline]{c++}{string/kmp.cc}
+\inputminted[breaklines,linenos,frame=leftline]{c++}{string/kmp.cpp}
 
 \subsection{Suffix Automaton}
 \inputminted[breaklines]{c++}{string/suffix-automaton.cc}
@@ -47,7 +51,13 @@
 \newpage
 \section{数据结构}
 \subsection{01字典树}
-\inputminted[breaklines]{c++}{DataStruct/trie.cpp}
+\inputminted[breaklines,linenos,frame=leftline]{c++}{DataStruct/trie.cpp}
+
+\subsection{树状数组}
+\subsubsection{一维树状数组}
+\inputminted[breaklines,linenos,frame=leftline]{c++}{DataStruct/BIT1.cpp}
+\subsubsection{求逆序对}
+\inputminted[breaklines,linenos,frame=leftline]{c++}{DataStruct/BIT2.cpp}
 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -70,9 +80,40 @@ $$\sum_{i=1}^n \lfloor \frac{n}{i} \rfloor $$
 \subsection{BSGS}
 \inputminted[breaklines,linenos,frame=leftline]{c++}{math/BSGS.cpp}
 
+\subsection{中国剩余定理}
+中国剩余定理 (Chinese Remainder Theorem, CRT) 可求解如下形式的一元线性同余方程组（其中 $n_1, n_2, \cdots, n_k$ 两两互质）：
+$$
+\begin{cases}
+x &\equiv a_1 \pmod {n_1} \\
+x &\equiv a_2 \pmod {n_2} \\
+  &\vdots \\
+x &\equiv a_k \pmod {n_k} \\
+\end{cases}
+$$
+算法流程
+\begin{enumerate}
+    \item 计算所有模数的积 $n$；
+    \item 对于第 $i$ 个方程：
+        \begin{enumerate}
+            \item 计算 $m_i=\frac{n}{n_i}$；
+            \item 计算 $m_i$ 在模 $n_i$ 意义下的 [逆元](./inverse.md)  $m_i^{-1}$；
+            \item 计算 $c_i=m_im_i^{-1}$（不要对 $n_i$ 取模）。
+        \end{enumerate}
+    \item 方程组的唯一解为：$x=\sum_{i=1}^k a_ic_i \pmod n$。
+\end{enumerate}
+代码如下:
+\inputminted[breaklines,linenos,frame=leftline]{c++}{math/crt.cpp}
+
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \newpage
 \section{图论} % 一级标题
+
+\subsection{BFS}
+\subsubsection{伪代码}
+\inputminted[breaklines,linenos,frame=leftline]{c++}{graph/bfs1.cpp}
+\subsubsection{BFS记录距离和路径}
+\inputminted[breaklines,linenos,frame=leftline]{c++}{graph/bfs2.cpp}
+
 \subsection{最小生成树} % 二级标题
 无向图中，其某个子图中任意两个顶点都互相连通并且是一棵树，称之为生成树；若每个顶点有权值，则其权值和最小的生成树为最小生成树。
 \subsubsection{Prim算法}
@@ -107,9 +148,16 @@ Right：min(Right[i][j]，Right[i-1],[j])
 Left:：max(Left[i][j]，Left[i-1][j])
 \inputminted[breaklines,linenos,frame=leftline]{c++}{DP/StretchedWire.cpp}
 
+\subsection{LIS 最长上升子序列}
+\inputminted[breaklines,linenos,frame=leftline]{c++}{DP/lis.cpp}
+
+\subsection{背包}
+\subsubsection{基础背包}
+\inputminted[breaklines,linenos,frame=leftline]{c++}{DP/pack.cpp}
+
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \newpage
-\section{其他}
+\section{杂项}
 \subsection{输入输出}
 \subsubsection{快读}
 \inputminted[breaklines,linenos,frame=leftline]{c++}{others/read1.cpp}
@@ -124,6 +172,15 @@ Left:：max(Left[i][j]，Left[i-1][j])
 \inputminted[breaklines,linenos,frame=leftline]{c++}{others/bignum2.cpp}
 \subsubsection{压位高精度}
 \inputminted[breaklines,linenos,frame=leftline]{c++}{others/bignum1.cpp}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\newpage
+\section{经典例题}
+\subsection{某天是星期几}
+\inputminted[breaklines]{c++}{question/1.cpp}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \newpage
