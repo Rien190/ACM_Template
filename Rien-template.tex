@@ -45,11 +45,15 @@
 \subsection{KMP}
 \inputminted[breaklines,linenos,frame=leftline]{c++}{string/kmp.cpp}
 
-\subsection{Suffix Automaton}
-\inputminted[breaklines]{c++}{string/suffix-automaton.cc}
+
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \newpage
 \section{数据结构}
+
+\subsection{并查集}
+\subsubsection{优化并查集}
+\inputminted[breaklines,linenos,frame=leftline]{c++}{DataStruct/disjoint1.cpp}
+
 \subsection{01字典树}
 \inputminted[breaklines,linenos,frame=leftline]{c++}{DataStruct/trie.cpp}
 
@@ -67,6 +71,9 @@
 \subsection{快速幂}
 \subsubsection{数字快速幂}
 \inputminted[breaklines,linenos,frame=leftline]{c++}{math/quickpow1.cpp}
+
+\subsection{组合数学}
+\inputminted[breaklines,linenos,frame=leftline]{c++}{math/com.cpp}
 
 \subsection{莫比乌斯反演}
 \subsubsection{整除分块}
@@ -114,16 +121,24 @@ $$
 \subsubsection{BFS记录距离和路径}
 \inputminted[breaklines,linenos,frame=leftline]{c++}{graph/bfs2.cpp}
 
+\subsection{最短路}
+\subsubsection{Dijkstra算法单源最短路}
+\inputminted[breaklines,linenos,frame=leftline]{c++}{graph/shortest1.cpp}
+\subsubsection{bellman\_ford算法单源最短路}
+\inputminted[breaklines,linenos,frame=leftline]{c++}{graph/shortest2.cpp}
+\subsubsection{Floyd任意两点最短路径}
+\inputminted[breaklines,linenos,frame=leftline]{c++}{graph/shortest3.cpp}
+
 \subsection{最小生成树} % 二级标题
 无向图中，其某个子图中任意两个顶点都互相连通并且是一棵树，称之为生成树；若每个顶点有权值，则其权值和最小的生成树为最小生成树。
 \subsubsection{Prim算法}
 \inputminted[breaklines,linenos,frame=leftline]{c++}{graph/prim.cpp}
 \subsubsection{Kruskal算法} % 三级标题
 \inputminted[breaklines,linenos,frame=leftline]{c++}{graph/kruskal.cpp}
-% 中文测试
-\subsection{单源最短路}
-\subsubsection{SPFA}
-\inputminted[breaklines]{c++}{graph/spfa.cc}
+
+
+
+
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \newpage
 \section{动态规划}
@@ -158,6 +173,7 @@ Left:：max(Left[i][j]，Left[i-1][j])
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \newpage
 \section{杂项}
+
 \subsection{输入输出}
 \subsubsection{快读}
 \inputminted[breaklines,linenos,frame=leftline]{c++}{others/read1.cpp}
@@ -165,13 +181,26 @@ Left:：max(Left[i][j]，Left[i-1][j])
 \inputminted[breaklines,linenos,frame=leftline]{c++}{others/read2.cpp}
 \subsubsection{快读快写}
 \inputminted[breaklines,linenos,frame=leftline]{c++}{others/read3.cpp}
-\subsubsection{7.19所用板子}
+\subsubsection{8.11所用板子}
 \inputminted[breaklines,linenos,frame=leftline]{c++}{others/7.19.cpp}
+
 \subsection{高精度}
+\subsubsection{int128}
+\inputminted[breaklines,linenos,frame=leftline]{c++}{others/int128.cpp}
 \subsubsection{简单高精度}
 \inputminted[breaklines,linenos,frame=leftline]{c++}{others/bignum2.cpp}
 \subsubsection{压位高精度}
 \inputminted[breaklines,linenos,frame=leftline]{c++}{others/bignum1.cpp}
+
+\subsection{离散化}
+\inputminted[breaklines,linenos,frame=leftline]{c++}{others/discretize.cpp}
+
+\subsection{常用公式}
+\begin{itemize}
+    \item $\sum_{i=1}^{n} i = \frac{n*(n+1)}{2} $
+    \item $\sum_{i=1}^{n} i^2 = \frac{n*(n+1)*(2n+1)}{6} $
+    \item $\sum_{i=1}^{n} i^3 = \left[\frac{n*(n+1)}{2}\right]^2 $
+\end{itemize}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \newpage

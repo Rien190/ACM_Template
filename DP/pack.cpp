@@ -12,17 +12,17 @@ void CompletePack(int cost,int value){
         dp[i]=max(dp[i],dp[i-cost]+value);
 }
 //多重背包,代价为cost,价值为value,数量为amount
-void MultiplePack(int cost,int weight,int amount){
+void MultiplePack(int cost,int value,int amount){
     if(cost*amount>=nValue)
-        CompletePack(cost,weight);
+        CompletePack(cost,value);
     else {
         int k=1;
         while(k<amount){
-            ZeroOnePack(k*cost,k*weight);
+            ZeroOnePack(k*cost,k*value);
             amount-=k;
             k<<=1;
         }
-        ZeroOnePack(amount*cost,amount*weight);
+        ZeroOnePack(amount*cost,amount*value);
     }
 }
 int main(){
