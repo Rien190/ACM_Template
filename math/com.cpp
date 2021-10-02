@@ -63,29 +63,42 @@ int C(int n,int m){
 模数必须是质数,n比较大,p比较小,不能通过预处理阶乘和逆元来计算
 lucas(n,m,p)返回C(n,m)对p取模的结果
 */
-ll f[N],rf[N];
-ll mul(ll x,ll y,ll p){
-    return (x*y-(ll)(x/(long double)p*y+1e-3)*p+p)%p;
+const ll p = (ll)1e9 + 7;
+ll pow(ll a, ll b, ll m){
+    ll ans = 1;
+    a %= m;
+    while(b)
+    {
+        if(b & 1)ans = (ans % m) * (a % m) % m;
+        b /= 2;
+        a = (a % m) * (a % m) % m;
+    }
+    ans %= m;
+    return ans;
 }
-ll pow(ll a,ll b,ll p){
-    ll t=1;
-    for(;b;b>>=1,a=mul(a,a,p))
-        if(b & 1) t=mul(t,a,p );
-    return t;
+ll inv(ll x, ll p)//x关于p的逆元，p为素数
+{
+    return pow(x, p - 2, p);
 }
-//使用时为 init(p)
-void init(int p){
-    f[0]=1;
-    for(int i=1;i<p;++i) f[i]=f[i-1]*i%p;
-    rf[p-1]=pow(f[p-1],p-2,p);
-    for(int i=p-1;i;i--) rf[i-1]=rf[i]*i%p;
+ll C(ll n, ll m, ll p)//组合数C(n, m) % p
+{
+    if(m > n)return 0;
+    ll up = 1, down = 1;//分子分母;
+    for(int i = n - m + 1; i <= n; i++)up = up * i % p;
+    for(int i = 1; i <= m; i++)down = down * i % p;
+    return up * inv(down, p) % p;
 }
-ll C(int n,int m,int mod){
-    if(m>n||m<0||n<0) return 0;
-    return f[n]*rf[m]%mod*rf[n-m]%mod;
+ll Lucas(ll n, ll m, ll p)
+{
+    if(m == 0)return 1;
+    return C(n % p, m % p, p) * Lucas(n / p, m / p, p) % p;
 }
-ll lucas(ll n,ll m,ll p){
-    if(n<m) return 0;
-    if(!m || n==m)  return 1;
-    return C(n%p,m%p,p) *lucas(n/p,m/p,p )%p;
+int main()
+{
+	long long n,m;
+	while(~scanf("%lld%lld",&n,&m))
+	{
+		printf("%lld\n",Lucas(n,m,p));
+	}
+	return 0;
 }

@@ -5,7 +5,10 @@
 \usepackage[colorlinks]{hyperref}  % 目录可跳转
 \usepackage{graphicx}
 \usepackage{amsmath}
-\setlength{\headheight}{15pt}
+\usepackage{geometry}
+
+\geometry{left=3cm,right=3cm,top=2cm,bottom=2cm}
+\setlength{\headheight}{12pt}
 
 \hypersetup {
     colorlinks=true,
@@ -45,6 +48,8 @@
 \subsection{KMP}
 \inputminted[breaklines,linenos,frame=leftline]{c++}{string/kmp.cpp}
 
+\subsection{AC自动机}
+\inputminted[breaklines,linenos,frame=leftline]{c++}{string/ac.cpp}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \newpage
@@ -68,9 +73,27 @@
 \newpage
 \section{数学}
 
+\subsection{质数}
+\subsubsection{质数的判定}
+\inputminted[breaklines,linenos,frame=leftline]{c++}{math/prime1.cpp}
+\subsubsection{质数筛}
+\inputminted[breaklines,linenos,frame=leftline]{c++}{math/prime2.cpp}
+\subsubsection{大区间质数筛}
+\inputminted[breaklines,linenos,frame=leftline]{c++}{math/prime3.cpp}
+
+
+
+\subsection{约数}
+\subsubsection{最大公约数}
+\inputminted[breaklines,linenos,frame=leftline]{c++}{math/gcd.cpp}
+
 \subsection{快速幂}
+\subsubsection{快速乘}
+\inputminted[breaklines,linenos,frame=leftline]{c++}{math/quickpow3.cpp}
 \subsubsection{数字快速幂}
 \inputminted[breaklines,linenos,frame=leftline]{c++}{math/quickpow1.cpp}
+\subsubsection{矩阵快速幂}
+\inputminted[breaklines,linenos,frame=leftline]{c++}{math/quickpow2.cpp}
 
 \subsection{组合数学}
 \inputminted[breaklines,linenos,frame=leftline]{c++}{math/com.cpp}
@@ -110,6 +133,22 @@ $$
 \end{enumerate}
 代码如下:
 \inputminted[breaklines,linenos,frame=leftline]{c++}{math/crt.cpp}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\newpage
+\section{计算几何}
+
+\subsection{二维几何}
+\inputminted[breaklines,linenos,frame=leftline]{c++}{geometry/2d.cpp}
+
+\subsection{三维几何}
+\inputminted[breaklines,linenos,frame=leftline]{c++}{geometry/3d.cpp}
+
+\subsection{平面最近点对}
+\inputminted[breaklines,linenos,frame=leftline]{c++}{geometry/dis.cpp}
+
+\subsection{三维凸包}
+\inputminted[breaklines,linenos,frame=leftline]{c++}{geometry/hull.cpp}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \newpage
@@ -175,6 +214,8 @@ Left:：max(Left[i][j]，Left[i-1][j])
 \section{杂项}
 
 \subsection{输入输出}
+\subsubsection{scanf和prinf的用法}
+\inputminted[breaklines,linenos,frame=leftline]{c++}{others/read4.cpp}
 \subsubsection{快读}
 \inputminted[breaklines,linenos,frame=leftline]{c++}{others/read1.cpp}
 \subsubsection{关闭同步}
@@ -207,6 +248,13 @@ Left:：max(Left[i][j]，Left[i-1][j])
 \section{经典例题}
 \subsection{某天是星期几}
 \inputminted[breaklines]{c++}{question/1.cpp}
+
+\subsection{动态区间最大和}
+在数列${p_n}$中,找出一个字段$[l,r](r-l+1<=k)$,最大化$\sum^r_{i=l}p_i$
+\inputminted[breaklines]{c++}{question/2.cpp}
+
+\subsection{二分查找}
+\inputminted[breaklines]{c++}{question/3.cpp}
 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
